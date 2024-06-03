@@ -1,0 +1,88 @@
+1.1变量声明
+
+let msg: string = 'hello'
+//let声明变量关键字 const表常量
+
+string // 字符串
+
+number// 整数，浮点数
+
+boolean// 布尔
+
+any// 任意
+
+let u：string|number|boolean = 'rose'
+//union 联合类型
+
+let p = {name:'jack',age:21}
+console.log(p.name)
+console.log(p['name'])
+//Object 对象
+
+let name: Array = ['jack','rose']
+//Array 数组
+
+1.2条件控制
+
+//if-else和switch
+
+//’===‘不判断类型，直接比较
+//空字符串，0，null，undefined都为false ， 其他为true
+
+1.3循环迭代
+
+//for和while
+
+//给Array提供快捷迭代语法
+for(const i in names)//迭代器，得到数组角标
+for(const name of names)//迭代器，得到元素
+
+1.4函数
+
+function sayhello(name: string): void{...}
+//function关键字声明函数
+
+let sayhi = (name: string)=>{}
+//箭头函数
+
+function sayhello(name?: string){...}
+// ? 可选参数
+
+function sayhello(name: string = '陌生人'): void{
+console.log(name)
+}
+sayhello('jack')//输出 jack
+sayhello()//输出 陌生人
+//默认参数 判断是否传参来定义值
+
+1.5类和接口
+
+//面向对象的语法 也具备封装，多态，继承，例如enum,class,interface
+
+enum Msg{
+HI = 'hi'
+HELLO = 'hello'
+}
+//定义枚举
+
+interface A{
+say(msg: Msg): void
+}
+//定义接口
+class B inplements A{
+say(msg: Msg): void{
+console.log(msg)
+}
+}
+//实现接口
+let a : A = new B()
+a.say(Msg.HI)
+//调用B方法，传入枚举参数
+
+1.6
+
+//通用功能提取到ts文件中，每一个文件都是一个模块model
+
+export class Maths{...}
+import {Maths, area} from '../address'
+//export 导出 import 导入 ，可以公共类或方法
